@@ -1,0 +1,35 @@
+//homework 17.01.2024
+
+#include <iostream>
+#include <vector>
+
+struct Point {
+    double x, y;
+};
+
+bool algorithm(const std::vector<Point>& vershinbI, const Point& retr) {
+    for (size_t i = 0; i < vershinbI.size(); ++i) {
+        const Point& vertex1 = vershinbI[i];
+        const Point& vertex2 = vershinbI[(i + 1) % vershinbI.size()];
+        if ((vertex2.y - vertex1.y) * (retr.x - vertex1.x) - (vertex2.x - vertex1.x) * (retr.y - vertex1.y) < 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    std::vector<Point> vershinbI = {{0, 0}, {0, 1}, {1, 1}, {1, 0}};
+    Point retr = {0.5, 0.5};
+
+    bool result = algorithm(vershinbI, retr);
+
+    if (result) {
+        std::cout << "true" << std::endl;
+    } else {
+        std::cout << "false" << std::endl;
+    }
+
+    return 0;
+}
