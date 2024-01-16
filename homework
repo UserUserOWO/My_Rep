@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-
+//using namespace std;
 struct Point {
     double x, y;
 };
@@ -20,7 +20,7 @@ bool algorithm(const std::vector<Point>& vershinbI, const Point& retr) {
 }
 
 int main() {
-    std::vector<Point> vershinbI = {{0, 0}, {0, 1}, {1, 1}, {1, 0}};
+    std::vector<Point> vershinbI = {{0, 0}, {0, 1}, {1, 1}, {1, 0}};//мой пример(ответ рабочий)
     Point retr = {0.5, 0.5};
 
     bool result = algorithm(vershinbI, retr);
